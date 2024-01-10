@@ -16,7 +16,7 @@ func show_message(text):
 	$Message.show()
 	$MessageTimer.start()
 
-func show_game_over_message(final_score):
+func show_game_over_message(final_score, high_score):
 	show_message("Game over!")
 	
 	# Wait until the MessageTimer node has reached zero
@@ -33,6 +33,8 @@ func show_game_over_message(final_score):
 	# Similar to thread.sleep(t)
 	# await get_tree().create_timer(1.0).timeout
 	
+	$ScoreLabel.text = "Highscore: " + str(high_score)
+	$ScoreLabel.show()
 	$Message.text = "Dodge the creeps!"
 	$Message.show()
 	$StartButton.show()
