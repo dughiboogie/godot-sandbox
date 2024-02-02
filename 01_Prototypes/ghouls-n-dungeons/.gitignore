@@ -1,0 +1,13 @@
+# Godot 4+ specific ignores
+.godot/
+
+# Godot-specific ignores
+.import/
+export.cfg
+export_presets.cfg
+*.TMP
+*.tmp
+*.import
+
+# Builds ignores
+Builds/
