@@ -20,6 +20,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
+@onready var wall_detection = $Head/WallDetectionRayCast3D
+@onready var step_detection = $Head/StepDetectionRayCast3D
 
 
 func _ready():
@@ -64,6 +66,11 @@ func _physics_process(delta):
 		else:
 			velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
 			velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)
+		
+		# Handle stairs/steps
+		if step_detection.is_colliding() and not wall_detection.is_colliding():
+			velocity.y = 2
+		
 	else:
 		velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
 		velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
