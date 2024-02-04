@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://cids036378ug5"]
 
-[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_3rnec"]
+[ext_resource type="PackedScene" uid="uid://bq4r28jv36sep" path="res://Scenes/Prefabs/player.tscn" id="1_ut346"]
 [ext_resource type="PackedScene" uid="uid://b2xtxf8hbu210" path="res://Models/Environment/240202_Dark_souls_aqueduct.gltf" id="3_82p7p"]
 [ext_resource type="PackedScene" uid="uid://cngrix4nac3ym" path="res://Scenes/Prefabs/enemy.tscn" id="3_xjk1f"]
 
@@ -19,10 +19,6 @@ background_mode = 2
 sky = SubResource("Sky_pkavx")
 ambient_light_sky_contribution = 0.5
 tonemap_mode = 2
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_cyhp0"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_esyaj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ph1dg"]
 transparency = 1
@@ -50,22 +46,8 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_gk65a")
 
-[node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.1652, -3.81761, 40.8163)
-floor_stop_on_slope = false
-script = ExtResource("1_3rnec")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
-visible = false
-mesh = SubResource("CapsuleMesh_cyhp0")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-shape = SubResource("CapsuleShape3D_esyaj")
-
-[node name="Head" type="Node3D" parent="Player"]
-transform = Transform3D(0.820741, 0, 0.571301, 0, 1, 0, -0.571301, 0, 0.820741, 0, 0.689695, 0)
-
-[node name="Camera3D" type="Camera3D" parent="Player/Head"]
+[node name="Player" parent="." instance=ExtResource("1_ut346")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0427, 0, 39.8165)
 
 [node name="Lighting" type="Node3D" parent="."]
 visible = false
@@ -143,4 +125,3 @@ size = Vector3(2.29541, 0.992065, 4.45337)
 
 [node name="Enemy" parent="." instance=ExtResource("3_xjk1f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8414, -3.51573, 15.2147)
-visible = true
