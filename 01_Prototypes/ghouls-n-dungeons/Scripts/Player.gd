@@ -31,8 +31,12 @@ func _unhandled_input(event):
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+	
+	# DEBUGGING PURPOSES
 	elif Input.is_action_just_pressed("restart"):
 		get_tree().reload_current_scene()
+	elif Input.is_action_just_pressed("quit"):
+		get_tree().quit()
 
 
 func _physics_process(delta):
