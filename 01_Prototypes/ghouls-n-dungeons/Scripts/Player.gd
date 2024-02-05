@@ -109,3 +109,8 @@ func _on_weapon_hitbox_body_entered(body):
 		var enemy = body as Enemy
 		if enemy != null:
 			enemy.take_hit()
+
+
+# Handle pickup items
+func pickup_item(item_name: String):
+	print("Picked up item " + item_name)
