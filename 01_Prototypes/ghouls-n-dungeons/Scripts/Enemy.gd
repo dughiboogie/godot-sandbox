@@ -9,7 +9,7 @@ var player = null
 @onready var nav_agent = $NavigationAgent3D
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	velocity = Vector3.ZERO
 	
 	if player != null:

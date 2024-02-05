@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://cids036378ug5"]
+[gd_scene load_steps=15 format=3 uid="uid://cids036378ug5"]
 
-[ext_resource type="PackedScene" uid="uid://bq4r28jv36sep" path="res://Scenes/Prefabs/player.tscn" id="1_ut346"]
+[ext_resource type="PackedScene" uid="uid://bq4r28jv36sep" path="res://Scenes/Prefabs/Player.tscn" id="1_ut346"]
 [ext_resource type="PackedScene" uid="uid://b2xtxf8hbu210" path="res://Models/Environment/240202_Dark_souls_aqueduct.gltf" id="3_82p7p"]
-[ext_resource type="PackedScene" uid="uid://cngrix4nac3ym" path="res://Scenes/Prefabs/enemy.tscn" id="3_xjk1f"]
+[ext_resource type="PackedScene" uid="uid://cngrix4nac3ym" path="res://Scenes/Prefabs/Enemy.tscn" id="3_xjk1f"]
+[ext_resource type="PackedScene" uid="uid://d3phruk5mowp3" path="res://Scenes/Prefabs/Pickups/PickupItem.tscn" id="4_3tytv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6cv3v"]
 sky_top_color = Color(0.541176, 0.129412, 1, 1)
@@ -35,6 +36,14 @@ agent_height = 2.0
 [sub_resource type="BoxMesh" id="BoxMesh_geq3c"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_4uayo"]
+
+[sub_resource type="TextMesh" id="TextMesh_3fois"]
+text = "DAGGER"
+font_size = 40
+
+[sub_resource type="TextMesh" id="TextMesh_pwptt"]
+text = "SWORD"
+font_size = 40
 
 [node name="DarkSoulsAqueduct" type="Node3D"]
 
@@ -123,4 +132,38 @@ use_collision = true
 size = Vector3(2.29541, 0.992065, 4.45337)
 
 [node name="Enemy" parent="." instance=ExtResource("3_xjk1f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8414, -3.51573, 15.2147)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.81057, -3.51573, 13.3129)
+
+[node name="PickupItem" parent="." instance=ExtResource("4_3tytv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8468, -4, 25.0363)
+item_name = "Dagger"
+
+[node name="PickupItem2" parent="." instance=ExtResource("4_3tytv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9837, -4, 24.984)
+item_name = "Sword"
+
+[node name="DaggerText" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.836, -2.6292, 25.0464)
+mesh = SubResource("TextMesh_3fois")
+
+[node name="SwordText" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9818, -2.6292, 25.0464)
+mesh = SubResource("TextMesh_pwptt")
+
+[node name="Enemy2" parent="." instance=ExtResource("3_xjk1f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8484, -3.56236, 15.5732)
+
+[node name="Enemy7" parent="." instance=ExtResource("3_xjk1f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.12431, -3.56236, 11.3628)
+
+[node name="Enemy3" parent="." instance=ExtResource("3_xjk1f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3168, 3.34172, -4.76862)
+
+[node name="Enemy4" parent="." instance=ExtResource("3_xjk1f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.0135, 2.59323, -42.3487)
+
+[node name="Enemy5" parent="." instance=ExtResource("3_xjk1f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.04203, 12.4667, -31.9297)
+
+[node name="Enemy6" parent="." instance=ExtResource("3_xjk1f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6557, 13.5995, -38.667)
