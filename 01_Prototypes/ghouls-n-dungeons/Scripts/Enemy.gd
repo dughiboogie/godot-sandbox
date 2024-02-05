@@ -1,3 +1,4 @@
+class_name Enemy
 extends CharacterBody3D
 
 
@@ -28,3 +29,8 @@ func _on_player_detection_area_body_exited(body):
 	if body.name == "Player":
 		print("Lost player!")
 		player = null
+
+
+func take_hit():
+	print("Enemy hit!")
+	queue_free()

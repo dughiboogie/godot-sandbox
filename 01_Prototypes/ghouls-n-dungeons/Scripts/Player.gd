@@ -1,3 +1,4 @@
+class_name  Player
 extends CharacterBody3D
 
 var speed
@@ -30,6 +31,7 @@ func _ready():
 
 
 func _unhandled_input(event):
+	# Camera movement
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
@@ -102,6 +104,8 @@ func _headbob(time) -> Vector3:
 	return pos
 
 
+# Handle enemy hit
 func _on_weapon_hitbox_body_entered(body):
-	if body.is_in_group("enemy"):
-		print("Enemy hit!")
+		var enemy = body as Enemy
+		if enemy != null:
+			enemy.take_hit()
